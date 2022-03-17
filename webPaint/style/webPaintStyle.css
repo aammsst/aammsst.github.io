@@ -1,0 +1,36 @@
+html{
+    min-width: 560px;
+    min-height: 100%;
+}
+
+h1 {
+    margin-top: 90px;
+}
+
+.webPaint
+{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin: auto;
+    margin-top: 10px;
+}
+
+#webPaint{
+    background: #ebf6f7;
+    border: solid 3px #48e;
+}
+
+.webPaint div{
+    margin: auto;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#color{
+    margin-right: 100px;
+}
+
+#lw{
+    fill: #0b1716;
+}

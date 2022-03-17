@@ -1,0 +1,44 @@
+.lightMode{
+    background: linear-gradient(#ebf7f6,#639fb3);
+}
+
+.darkMode{
+    background: linear-gradient(#0b1716,#034f83);
+}
+
+.darkBackG{
+    background-color: #333;
+    color: #fff;
+}
+
+.lightBackG{
+    background-color: #ccc;
+}
+
+.hide{
+    display: none;
+}
+
+.dark-titles{
+    color: #ebf7f6;
+    padding: 7px;
+    background-color: #234;
+    box-shadow: inset -2px -5px #222;
+}
+
+.light-titles{
+    color: #1b2726;
+    padding: 7px;
+    background-color: #83bfe3;
+    box-shadow: inset -2px -5px #ccc;
+}
+
+.light-text{
+    background-color: #ccc;
+    color: #1b1716;
+}
+
+.dark-text{
+    background-color: #222;
+    color: #ebf7f6;
+}

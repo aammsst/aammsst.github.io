@@ -1,0 +1,165 @@
+html{
+    min-width: 1100px;
+    min-height: 100%;
+    overflow-x: hidden;
+    font-family: 'Barlow Condensed' !important;
+}
+
+.space{
+    height: 85px;
+}
+
+.instructions{
+    font-size: 1.7rem;
+    position: absolute;
+    z-index: -1;
+}
+
+.instructions h3{
+    margin: 5px 0;
+}
+
+.instructions ul{
+    margin: 10px;
+    padding-right: 10px;
+}
+
+.conteiner{
+    width: fit-content;
+    background-color: #bbc6c7;
+    display: flex;
+    margin: auto;
+    padding: 20px;
+    border-radius: 7px;
+    flex-wrap: nowrap;
+}
+
+.pause{
+    position: absolute;
+    z-index: 40;
+    display: none;
+    width: 200px;
+    height: 500px;
+    background-color: transparent;
+    border: solid 3px #f98;
+    border-radius: 7px;
+    margin: auto;
+}
+
+.pauseTxt {
+    display: block;
+    margin-top: 100%;
+    color: #ebf6f7;
+    height: fit-content;
+    text-align: center;
+}
+
+.gameOv{
+    position: absolute;
+    z-index: 50;
+    display: none;
+    width: 320px;
+    height: 500px;
+    background-color: #000;
+    border: solid 5px #ebf6f7;
+    border-radius: 7px;
+    margin: auto;
+}
+
+.gameOvTxt{
+    display: block;
+    color: #ebf6f7;
+    height: fit-content;
+    text-align: center;
+}
+
+.grid{
+    width: 200px;
+    height: 500px;
+    background-color: #000;
+    border: solid 3px #444;
+    border-radius: 7px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    overflow: hidden;
+}
+
+.grid div{
+    height: 20px;
+    width: 20px;
+    box-sizing: border-box;
+    border: solid 0.5px #111;
+}
+
+.tetrominos{
+    border-style: outset !important;
+    border-width: 4px !important;
+    box-sizing: border-box;
+}
+
+#cont2{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100px;
+    height: fit-content;
+    margin-left: 20px;
+}
+
+#cont2 h2{
+    color: #128;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#next{
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.mini-grid{
+    height: 80px;
+    width: 80px;
+    margin: auto;
+    background-color: #000;
+    border: solid 1px #444;
+    border-radius: 7px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.mini-grid div{
+    height: 20px;
+    width: 20px;
+    box-sizing: border-box;
+}
+
+#lines{
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#start-button{
+    display: block;
+    margin: auto;
+    padding: 0 10px;
+    margin-top: 20px;
+    border: outset 3px #ebf6f7;
+    font-family: 'Barlow Condensed', sans-serif;
+    color: #000;
+    font-weight: 600;
+    font-size: 1.3rem;
+    transition: 0.5s linear;
+    outline: none;
+}
+
+#start-button:hover{
+    background-color: #9aa;
+}
+
+#start-button:active{
+    background-color: #47a;
+}
