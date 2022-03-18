@@ -1,9 +1,9 @@
 .lightMode{
-    background: linear-gradient(#ebf7f6,#639fb3);
+    background: linear-gradient(#000,#639fb3);
 }
 
 .darkMode{
-    background: linear-gradient(#0b1716,#034f83);
+    background: linear-gradient(#000,#034f83);
 }
 
 .darkBackG{
@@ -30,7 +30,7 @@
     color: #1b2726;
     padding: 7px;
     background-color: #83bfe3;
-    box-shadow: inset -2px -5px #ccc;
+    box-shadow: inset -2px -5px #ebf7f6;
 }
 
 .light-text{
