@@ -64,7 +64,7 @@ function contactBigger() {
 
 // detecting touch screen with max touch point
 document.addEventListener('DOMContentLoaded',()=>{
-    (mobile.matches || navigator.maxTouchPoints == 1) ? (
+    (mobile.matches || navigator.maxTouchPoints > 0) ? (
 	svgSmaller(),
 	textTitlesSmaller(),
 	contactSmaller()
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 })
 
 mobile.addEventListener("change",()=>{
-    (mobile.matches || navigator.maxTouchPoints == 1) ? (
+    (mobile.matches || navigator.maxTouchPoints > 0) ? (
 	svgSmaller(),
 	textTitlesSmaller(),
 	contactSmaller()
