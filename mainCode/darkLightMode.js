@@ -40,7 +40,7 @@ button.addEventListener('click',()=>{
 	moon.classList.add("hide")
     )
     : (body.classList.replace("darkMode","lightMode"),
-	body.classList.replace("darkMenu","lightMenu"),
+	menuBtn.classList.replace("darkMenu","lightMenu"),
 	(backG != null) ? (backG.classList.replace("darkBackG","lightBackG")) : null,
 	textAndTitlesLight(),
 	button.title = "Dark Mode",
