@@ -21,7 +21,7 @@ const messageBox = document.querySelector(".no-mobile"); // only for apps withou
 
 document.addEventListener('DOMContentLoaded',()=>{
     // mobile app verification
-    (navigator.maxTouchPoints == 1 && messageBox != null) ? (
+    (navigator.maxTouchPoints > 0 && messageBox != null) ? (
 	messageBox.removeAttribute("hidden"),
 	screen.style.overflow = "hidden"
     )
@@ -77,7 +77,7 @@ menu.addEventListener('click',()=>{
 
 // for testing while changing the resolution manually
 verifyWidht.addEventListener("change",()=>{
-    (navigator.maxTouchPoints == 1 && messageBox != null) ? (
+    (navigator.maxTouchPoints > 0 && messageBox != null) ? (
 	messageBox.removeAttribute("hidden"),
 	screen.style.overflow = "hidden"
     )

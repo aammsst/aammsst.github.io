@@ -6,6 +6,14 @@
     background: linear-gradient(#000,#034f83);
 }
 
+.darkMenu{
+    background-color: #034f83;
+}
+
+.lighMenu{
+    background-color: #639fb3;
+}
+
 .darkBackG{
     background-color: #333;
     color: #fff;

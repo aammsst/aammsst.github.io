@@ -7,6 +7,7 @@ const moon = document.getElementById("moon");
 const titles = document.querySelectorAll(".dark-titles");
 const text = document.querySelectorAll(".dark-text");
 const backG = document.querySelector(".darkBackG");
+const menuBtn = document.querySelector(".darkMenu");
 
 function textAndTitlesDark() {
     for(let i = 0; i < text.length; i++) {
@@ -31,6 +32,7 @@ function textAndTitlesLight() {
 button.addEventListener('click',()=>{
     (body.classList.contains("lightMode")) ? (
 	body.classList.replace("lightMode","darkMode"),
+	menuBtn.classList.replace("lightMenu","darkMenu"),
 	(backG != null) ? (backG.classList.replace("lightBackG","darkBackG")) : null,
 	textAndTitlesDark(),
 	button.title = "Light Mode",
@@ -38,6 +40,7 @@ button.addEventListener('click',()=>{
 	moon.classList.add("hide")
     )
     : (body.classList.replace("darkMode","lightMode"),
+	body.classList.replace("darkMenu","lightMenu"),
 	(backG != null) ? (backG.classList.replace("darkBackG","lightBackG")) : null,
 	textAndTitlesLight(),
 	button.title = "Dark Mode",

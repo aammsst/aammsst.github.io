@@ -24,6 +24,17 @@ html{
 
 .menu{
     padding: 20px;
+    border-radius: 100%;
+    transition-property: hover;
+    transition: 0.5s;
+}
+
+.menu:hover{
+    background-color: #555;
+}
+
+.menu:active{
+    background-color: #fff;
 }
 
 .menu-box{
