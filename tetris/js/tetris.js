@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded',() => {
 	draw();
     };
 
-   // rotate counter clockwise
+    // rotate counter clockwise
     function rotateCCW() {
 	undraw();
 	const rightEdge = current.some(index => (initialPos + index) % width === width - 1);
@@ -165,10 +165,13 @@ document.addEventListener('DOMContentLoaded',() => {
     // move control
     function control(e) {
 	if(e.keyCode === 37) {
+	    e.preventDefault();
 	    moveLeft();
 	} else if (e.keyCode === 39) {
+	    e.preventDefault();
 	    moveRight();
 	}  else if (e.keyCode === 40) {
+	    e.preventDefault();
 	    moveDown();
 	};
     };
