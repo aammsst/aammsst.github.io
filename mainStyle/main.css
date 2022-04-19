@@ -11,15 +11,18 @@ html{
     color: #03111e;
 }
 
-.menu-bar{
+.menu-bar, .project-menu-bar{
     z-index: 100;
     position: fixed;
     top: 10px;
     width: 99%;
-    backdrop-filter: blur(33px);
     border-radius: 5px;
     display: flex;
     justify-content: space-between; 
+}
+
+.menu-bar{
+    backdrop-filter: blur(33px);
 }
 
 .menu{
