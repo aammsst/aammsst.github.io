@@ -195,6 +195,7 @@ document.addEventListener('DOMContentLoaded',() => {
     
     // when touch starts, takes the X value
     function mobileMoveStart(e) {
+	e.preventDefault();
 	moveStartX = e.changedTouches[0].clientX;
 	moveStartY = e.changedTouches[0].clientY;
 	return moveStartX, moveStartY;
@@ -202,6 +203,7 @@ document.addEventListener('DOMContentLoaded',() => {
 
     // when touch ends, takes the X value
     function mobileMoveEnd(e) {
+	e.preventDefault();
 	moveEndX = e.changedTouches[0].clientX;
 	moveEndY = e.changedTouches[0].clientY;
 	moveDetec(moveStartX,moveEndX,moveStartY,moveEndY);
