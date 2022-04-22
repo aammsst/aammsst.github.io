@@ -32,9 +32,29 @@ webPaint.addEventListener("mouseup",()=>{
 
 // Touch events {{{
 
-webPaint.addEventListener("touchstart",e => {
+webPaint.addEventListener("touchstart", e => {
     e.preventDefault();
-    console.log(e);
+    difX = e.changedTouches[0].clientX - dif.left;
+    difY = e.changedTouches[0].clientY - dif.top;
+    painting = true;
+    color = document.getElementById("color").value;
+    linewidth = document.getElementById("lw").value;
+    ctxx.beginPath();
+})
+
+webPaint.addEventListener("touchmove", e => {
+    e.preventDefault();
+    if (painting) {
+	dibujar(difX, difY, e.changedTouches[0].clientX - dif.left, e.changedTouches[0].clientY - dif.top);
+	difX = e.changedTouches[0].clientX - difX.left;
+	difY = e.changedTouches[0].clientY - difY.top;
+    }
+})
+
+webPaint.addEventListener("touchend", e => {
+    e.preventDefault();
+    ctxx.closePath();
+    painting = false;
 })
 
 // }}}
