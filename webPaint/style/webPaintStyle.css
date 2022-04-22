@@ -1,10 +1,10 @@
 html{
-    min-width: 560px;
+    min-width: 350px;
     min-height: 100%;
 }
 
 h1 {
-    margin-top: 90px;
+    margin: 100px auto 25px;
 }
 
 .webPaint
