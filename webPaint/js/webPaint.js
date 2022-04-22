@@ -32,7 +32,7 @@ webPaint.addEventListener("mouseup",()=>{
 
 // Touch events {{{
 
-webPaint.addEventListener("touchStart",e => {
+webPaint.addEventListener("touchstart",e => {
     e.preventDefault();
     console.log(e);
 })
