@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded',() => {
 
     const width = 10;
 
-    // tetrominos
+    // tetrominos {{{
     const lTetromino = [
 	[width+1,width+2,width+3,width*2+1],
 	[1,2,width+2,width*2+2],
@@ -64,6 +64,7 @@ document.addEventListener('DOMContentLoaded',() => {
 	[2,3,width+2,width*2+2]];
    
     const tetrominos = [lTetromino, zTetromino, oTetromino, iTetromino, tTetromino, sTetromino, jTetromino];
+    // }}}
 
     let initialRot = 0;
     let initialPos = 3;
@@ -71,6 +72,7 @@ document.addEventListener('DOMContentLoaded',() => {
     let random = Math.floor(Math.random()*tetrominos.length);
     current = tetrominos[random][initialRot];
  
+    // drawing, undrawing, freezing and actions {{{
     // drawing tetrominos
     function draw() {
 	current.forEach(index => {
@@ -161,7 +163,9 @@ document.addEventListener('DOMContentLoaded',() => {
 	current = tetrominos[random][initialRot];
 	draw();
     };
+    // }}}
 
+    // move and rotation for pc {{{
     // move control
     function control(e) {
 	if(e.keyCode === 37) {
@@ -184,8 +188,72 @@ document.addEventListener('DOMContentLoaded',() => {
 	    rotateCCW();
 	};
     };
+    // }}}
 
-    //show up next tetromino in mini-grid
+    // move and rotation mobile {{{
+    let moveStartX, moveEndX, moveStartY, moveEndY;
+    
+    // when touch starts, takes the X value
+    function mobileMoveStart(e) {
+	moveStartX = e.changedTouches[0].clientX;
+	moveStartY = e.changedTouches[0].clientY;
+	return moveStartX, moveStartY;
+    };
+
+    // when touch ends, takes the X value
+    function mobileMoveEnd(e) {
+	moveEndX = e.changedTouches[0].clientX;
+	moveEndY = e.changedTouches[0].clientY;
+	moveDetec(moveStartX,moveEndX,moveStartY,moveEndY);
+    };
+    
+    // s=Start, e=End
+    function moveDetec(sx,ex,sy,ey) {
+	if (sx - ex > 200) {
+	    moveLeft();
+	    moveLeft();
+	    moveLeft();
+	    moveLeft();
+	} else if (sx - ex > 150){
+	    moveLeft();
+	    moveLeft();
+	    moveLeft();
+	} else if (sx - ex > 100){
+	    moveLeft();
+	    moveLeft();
+	} else if (sx - ex > 30){
+	    moveLeft();
+	} else if (sx - ex < -200) {
+	    moveRight();
+	    moveRight();
+	    moveRight();
+	    moveRight();
+	} else if (sx - ex < -150){
+	    moveRight();
+	    moveRight();
+	    moveRight();
+	} else if (sx - ex < -100){
+	    moveRight();
+	    moveRight();
+	} else if (sx - ex < -30){
+	    moveRight();
+	} else if (ey - sy > 150){
+	    moveDown();
+	    moveDown();
+	    moveDown();
+	    moveDown();
+	} else if (ey - sy > 100){
+	    moveDown();
+	    moveDown();
+	    moveDown();
+	} else if (ey - sy > 30){
+	    moveDown();
+	    moveDown();
+	} else { rotateCW(); }
+    }
+    // }}}
+
+    //show up next tetromino in mini-grid {{{
     const displaySq = document.querySelectorAll('.mini-grid div');
     const displayWidth = 4;
     let displayIndex = 0;
@@ -214,13 +282,16 @@ document.addEventListener('DOMContentLoaded',() => {
 	    displaySq[displayIndex + index].style.borderColor = colors[nextRandom];
 	})
     };
+    // }}}
 
-    // start button
+    // start button {{{
     startBtn.addEventListener('click', ()=>{
 	if (!gameO && timerId) {
 	    clearInterval(timerId);
 	    document.removeEventListener('keyup',controlR);
 	    document.removeEventListener('keydown',control);
+	    grid.removeEventListener("touchstart",mobileMoveStart);
+	    grid.removeEventListener("touchend",mobileMoveEnd);
 	    timerId = null;
 	    pause.style.display = "block";
 	} else if (!gameO && nextRandom) {
@@ -228,12 +299,16 @@ document.addEventListener('DOMContentLoaded',() => {
 	    draw();
 	    document.addEventListener('keydown',control);
 	    document.addEventListener('keyup',controlR);
+	    grid.addEventListener("touchstart",mobileMoveStart)
+	    grid.addEventListener("touchend",mobileMoveEnd)
 	    timerId = setInterval(moveDown, 500);
 	    displayShape();
 	} else if (!gameO) {
 	    draw();
 	    document.addEventListener('keydown',control);
 	    document.addEventListener('keyup',controlR);
+	    grid.addEventListener("touchstart",mobileMoveStart)
+	    grid.addEventListener("touchend",mobileMoveEnd)
 	    timerId = setInterval(moveDown, 500);
 	    nextRandom = Math.floor(Math.random()*tetrominos.length);
 	    displayShape();
@@ -246,6 +321,8 @@ document.addEventListener('DOMContentLoaded',() => {
 	    };
 	    document.addEventListener('keydown',control);
 	    document.addEventListener('keyup',controlR);
+	    grid.addEventListener("touchstart",mobileMoveStart)
+	    grid.addEventListener("touchend",mobileMoveEnd)
 	    timerId = setInterval(moveDown, 500);
 	    nextRandom = Math.floor(Math.random()*tetrominos.length);
 	    displayShape();
@@ -258,8 +335,9 @@ document.addEventListener('DOMContentLoaded',() => {
 	    gameOv.removeChild(lastScore);
 	}
     });
+    // }}}
 
-    // add score
+    // add score {{{
     function addScore() {
 	for(let i = 0; i < 249; i += width) {
 
@@ -299,8 +377,9 @@ document.addEventListener('DOMContentLoaded',() => {
 	    }
 	}
     };
+    // }}}
 
-    // game over
+    // game over {{{
     function gameOver() {
 	if (current.some(index => squares[initialPos + index].classList.contains('taken'))) {
 	    gameO = true;
@@ -316,4 +395,5 @@ document.addEventListener('DOMContentLoaded',() => {
 	    document.removeEventListener('keyup',controlR);
 	}
     };
+    // }}}
 });
