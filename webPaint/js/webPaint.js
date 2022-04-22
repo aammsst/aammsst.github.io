@@ -6,6 +6,7 @@ const ctxx = webPaint.getContext("2d");
 
 let painting,color,linewidth,difX,difY;
 
+// Mouse events {{{
 webPaint.addEventListener("mousedown", e => {
     difX = e.clientX - dif.left;
     difY = e.clientY - dif.top;
@@ -27,7 +28,18 @@ webPaint.addEventListener("mouseup",()=>{
     ctxx.closePath();
     painting = false;
 })
+// }}}
 
+// Touch events {{{
+
+webPaint.addEventListener("touchStart",e => {
+    e.preventDefault();
+    console.log(e);
+})
+
+// }}}
+
+// Draw {{{
 const dibujar = (x1,y1,x2,y2) => {
     ctxx.strokeStyle = color;
     ctxx.lineWidth = linewidth;
@@ -35,3 +47,4 @@ const dibujar = (x1,y1,x2,y2) => {
     ctxx.lineTo(x2,y2);
     ctxx.stroke();
 }
+// }}}
