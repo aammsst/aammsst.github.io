@@ -244,11 +244,20 @@ document.addEventListener('DOMContentLoaded',() => {
 	    moveDown();
 	    moveDown();
 	    moveDown();
+	    moveDown();
+	    moveDown();
+	    moveDown();
+	    moveDown();
 	} else if (ey - sy > 100){
 	    moveDown();
 	    moveDown();
 	    moveDown();
+	    moveDown();
+	    moveDown();
+	    moveDown();
 	} else if (ey - sy > 30){
+	    moveDown();
+	    moveDown();
 	    moveDown();
 	    moveDown();
 	} else { rotateCW(); }
