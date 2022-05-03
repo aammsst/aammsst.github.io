@@ -108,6 +108,8 @@ html{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 20px;
+    border-radius: 7px;
 }
 
 .projects a{
