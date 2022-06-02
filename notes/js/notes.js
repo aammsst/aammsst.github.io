@@ -38,7 +38,7 @@ const requestInfo = (mode, msg) =>{
     const IDBtransaction = dataBass.transaction("data",mode);
     const objStore = IDBtransaction.objectStore("data");
     IDBtransaction.addEventListener("complete",()=>{
-	console.log(msg)
+	if (msg) console.log(msg)
     })
 
     return objStore;
