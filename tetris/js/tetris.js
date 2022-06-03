@@ -43,10 +43,10 @@ document.addEventListener('DOMContentLoaded',() => {
 	[1,2,width+1,width+2],
 	[1,2,width+1,width+2]];
     const iTetromino = [
-	[2,width+2,width*2+2,width*3+2],
 	[width+1,width+2,width+3,width+4],
-	[3,width+3,width*2+3,width*3+3],
-	[width*2+1,width*2+2,width*2+3,width*2+4]];
+	[2,width+2,width*2+2,width*3+2],
+	[width*2+1,width*2+2,width*2+3,width*2+4],
+	[3,width+3,width*2+3,width*3+3]];
     const tTetromino = [
 	[width+1,width+2,width+3,width*2+2],
 	[2,width+1,width+2,width*2+2],
@@ -93,10 +93,10 @@ document.addEventListener('DOMContentLoaded',() => {
 
     // move down
     function moveDown() {
+	freeze();
 	undraw();
 	initialPos += width;
 	draw();
-	freeze();
     }
 
     // freeze at the bottom and when touching other pieces
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded',() => {
     // move Left
     function moveLeft() {
 	undraw();
-	const leftEdge = current.some(index => (initialPos + index) % width ===0);
+	const leftEdge = current.some(index => (initialPos + index) % width === 0);
 	if (!leftEdge) initialPos -= 1;
 	if (current.some(index => squares[initialPos + index].classList.contains('taken'))) {
 	    initialPos += 1;
@@ -144,8 +144,38 @@ document.addEventListener('DOMContentLoaded',() => {
 	const leftEdge = current.some(index => (initialPos + index) % width === 0);
 	if (!rightEdge && !leftEdge) {
 	    initialRot++
-	    if (initialRot === current.length) initialRot = 0 
-	};
+	    // ------------------------- exception for L tetrominos
+	} else if (rightEdge && random == 0 && initialRot != 1) {
+	    initialRot++
+	} else if (leftEdge && random == 0 && initialRot != 3) {
+	    initialRot++
+	    // ------------------------- exception fot Z tetrominos
+	} else if (rightEdge && random == 1) {
+	    initialRot++
+	} else if (leftEdge && random == 1 && (initialRot == 0 || initialRot == 2)) {
+	    initialRot++
+	    // ------------------------- exception for I tetrominos
+	} else if (rightEdge && random == 3 && (initialRot == 0 || initialRot == 2)) {
+	    initialRot++
+	} else if (leftEdge && random == 3 && (initialRot == 0 || initialRot == 2)) {
+	    initialRot++
+	    // ------------------------- exception for T tetrominos
+	} else if (rightEdge && random == 4 && initialRot != 1) {
+	    initialRot++
+	} else if (leftEdge && random == 4 && initialRot != 3) {
+	    initialRot++
+	    // ------------------------- exception for S tetrominos
+	} else if (rightEdge && random == 5) {
+	    initialRot++
+	} else if (leftEdge && random == 5 && (initialRot == 0 || initialRot == 2)) {
+	    initialRot++
+	    // ------------------------- exception for J tetrominos
+	} else if (rightEdge && random == 6 && initialRot != 1) {
+	    initialRot++
+	} else if (leftEdge && random == 6 && initialRot != 3) {
+	    initialRot++
+	}
+	if (initialRot === current.length) initialRot = 0 
 	current = tetrominos[random][initialRot];
 	draw();
     };
@@ -155,11 +185,40 @@ document.addEventListener('DOMContentLoaded',() => {
 	undraw();
 	const rightEdge = current.some(index => (initialPos + index) % width === width - 1);
 	const leftEdge = current.some(index => (initialPos + index) % width === 0);
-	(!rightEdge && !leftEdge) ? (
-	    (initialRot > 0)? (initialRot--)
-		: initialRot = 3
-	)
-	    : null;
+	if (!rightEdge && !leftEdge) {
+	    initialRot--
+	    // ------------------------- exception for L tetrominos
+	} else if (rightEdge && random == 0 && initialRot != 1) {
+	    initialRot--
+	} else if (leftEdge && random == 0 && initialRot != 3) {
+	    initialRot--
+	    // ------------------------- exception fot Z tetrominos
+	} else if (rightEdge && random == 1) {
+	    initialRot--
+	} else if (leftEdge && random == 1 && (initialRot == 0 || initialRot == 2)) {
+	    initialRot--
+	    // ------------------------- exception for I tetrominos
+	} else if (rightEdge && random == 3 && (initialRot == 0 || initialRot == 2)) {
+	    initialRot--
+	} else if (leftEdge && random == 3 && (initialRot == 0 || initialRot == 2)) {
+	    initialRot--
+	    // ------------------------- exception for T tetrominos
+	} else if (rightEdge && random == 4 && initialRot != 1) {
+	    initialRot--
+	} else if (leftEdge && random == 4 && initialRot != 3) {
+	    initialRot--
+	    // ------------------------- exception for S tetrominos
+	} else if (rightEdge && random == 5) {
+	    initialRot--
+	} else if (leftEdge && random == 5 && (initialRot == 0 || initialRot == 2)) {
+	    initialRot--
+	    // ------------------------- exception for J tetrominos
+	} else if (rightEdge && random == 6 && initialRot != 1) {
+	    initialRot--
+	} else if (leftEdge && random == 6 && initialRot != 3) {
+	    initialRot--
+	}
+	if (initialRot < 0) initialRot = 3
 	current = tetrominos[random][initialRot];
 	draw();
     };
