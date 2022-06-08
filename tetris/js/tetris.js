@@ -227,13 +227,13 @@ document.addEventListener('DOMContentLoaded',() => {
     // move and rotation for pc {{{
     // move control
     function control(e) {
-	if(e.keyCode === 37) {
+	if (e.keyCode === 37) {
 	    e.preventDefault();
 	    moveLeft();
 	} else if (e.keyCode === 39) {
 	    e.preventDefault();
 	    moveRight();
-	}  else if (e.keyCode === 40) {
+	} else if (e.keyCode === 40) {
 	    e.preventDefault();
 	    moveDown();
 	};
@@ -323,7 +323,7 @@ document.addEventListener('DOMContentLoaded',() => {
     }
     // }}}
 
-    //show up next tetromino in mini-grid {{{
+    // show up next tetromino in mini-grid {{{
     const displaySq = document.querySelectorAll('.mini-grid div');
     const displayWidth = 4;
     let displayIndex = 0;
@@ -333,9 +333,9 @@ document.addEventListener('DOMContentLoaded',() => {
 	[displayWidth+1,displayWidth+2,displayWidth+3,displayWidth*2+1],// L
 	[displayWidth+1,displayWidth+2,displayWidth*2+2,displayWidth*2+3],// Z
 	[1,2,displayWidth+1,displayWidth+2], // O
-	[2,displayWidth+2,displayWidth*2+2,displayWidth*3+2],// I
+	[displayWidth+1,displayWidth+2,displayWidth+3,displayWidth+4],// I
 	[displayWidth+1,displayWidth+2,displayWidth+3,displayWidth*2+2], // T
-	[displayWidth+2,displayWidth+3,displayWidth*2+1,displayWidth*2+2], //S
+	[displayWidth+2,displayWidth+3,displayWidth*2+1,displayWidth*2+2], // S
 	[displayWidth+1,displayWidth+2,displayWidth+3,displayWidth*2+3] // J
     ];
 
@@ -411,36 +411,44 @@ document.addEventListener('DOMContentLoaded',() => {
     function addScore() {
 	for(let i = 0; i < 249; i += width) {
 
+	    // single, double, and triple detector
 	    let row = [i, i+1, i+2, i+3, i+4, i+5, i+6, i+7, i+8, i+9];
 
+	    // tetris (four lines) detector
 	    let tetrisRow = [i, i+1, i+2, i+3, i+4, i+5, i+6, i+7, i+8, i+9,
 		i+width, i+width+1, i+width+2, i+width+3, i+width+4, i+width+5, i+width+6, i+width+7, i+width+8, i+width+9,
 		i+width*2, i+width*2+1, i+width*2+2, i+width*2+3, i+width*2+4, i+width*2+5, i+width*2+6, i+width*2+7, i+width*2+8, i+width*2+9,
 		i+width*3, i+width*3+1, i+width*3+2, i+width*3+3, i+width*3+4, i+width*3+5, i+width*3+6, i+width*3+7, i+width*3+8, i+width*3+9];
 
 	    if (i<211 && tetrisRow.every(index => squares[index].classList.contains('taken'))) {
+		// tetris score
 		score += 60;
 		scoreDisplay.innerHTML = score;
 		lineCounter += 4;
 		lines.innerHTML = lineCounter;
+		// removing lines
 		tetrisRow.forEach(index => {
 		    squares[index].classList.remove('taken','tetrominos');
 		    squares[index].style.backgroundColor = '';
 		    squares[index].style.borderColor = '';
 		})
+		// adding new lines at the top
 		const squaresRemoved = squares.splice(i, width*4);
 		squares = squaresRemoved.concat(squares);
 		squares.forEach(cell => grid.appendChild(cell));
 	    } else if (row.every(index => squares[index].classList.contains('taken'))) {
+		// single, double and triple scores
 		score += 10;
 		scoreDisplay.innerHTML = score;
 		lineCounter += 1;
 		lines.innerHTML = lineCounter;
+		// removing lines
 		row.forEach(index => {
 		    squares[index].classList.remove('taken','tetrominos');
 		    squares[index].style.backgroundColor = '';
 		    squares[index].style.borderColor = '';
 		})
+		// adding new lines at the top
 		const squaresRemoved = squares.splice(i, width);
 		squares = squaresRemoved.concat(squares);
 		squares.forEach(cell => grid.appendChild(cell));
