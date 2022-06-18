@@ -26,7 +26,9 @@ html{
 }
 
 .conteiner{
-    width: fit-content;
+    width: intrinsic; /* Safari */
+    width: -moz-max-content; /* Firefox / Gecko */
+    width: -webkit-max-content; /* Chrome */
     background-color: #bbc6c7;
     display: flex;
     margin: auto;
