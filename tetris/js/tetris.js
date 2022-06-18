@@ -333,7 +333,7 @@ document.addEventListener('DOMContentLoaded',() => {
 	[displayWidth+1,displayWidth+2,displayWidth+3,displayWidth*2+1],// L
 	[displayWidth+1,displayWidth+2,displayWidth*2+2,displayWidth*2+3],// Z
 	[1,2,displayWidth+1,displayWidth+2], // O
-	[displayWidth+1,displayWidth+2,displayWidth+3,displayWidth+4],// I
+	[displayWidth,displayWidth+1,displayWidth+2,displayWidth+3],// I
 	[displayWidth+1,displayWidth+2,displayWidth+3,displayWidth*2+2], // T
 	[displayWidth+2,displayWidth+3,displayWidth*2+1,displayWidth*2+2], // S
 	[displayWidth+1,displayWidth+2,displayWidth+3,displayWidth*2+3] // J
