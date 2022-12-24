@@ -1,19 +1,5 @@
-"use strict";
-
 // menu related things
-const screen = document.body;
-const menu = document.querySelector(".menu");
-const menuBox =  document.createElement("DIV");
 const menuHome = document.createElement("A");
-const menuProjects = document.createElement("H2");
-const menuTetris = document.createElement("A");
-const menuNotes = document.createElement("A");
-const menuPaint = document.createElement("A");
-const menuContact = document.createElement("H2");
-const menuGitHub = document.createElement("A");
-const menuLinkedIn = document.createElement("A");
-const thx = document.createElement("H5");
-let open = false;
 
 // mobile app verification resources
 const verifyWidht = matchMedia("(max-width: 720px)");
@@ -21,15 +7,13 @@ const messageBox = document.querySelector(".no-mobile"); // only for apps withou
 
 document.addEventListener('DOMContentLoaded',()=>{
     // mobile app verification
-    (navigator.maxTouchPoints > 0 && messageBox != null) ? (
-	messageBox.removeAttribute("hidden"),
-	screen.style.overflow = "hidden"
-    )
-	: ((messageBox != null) ? (
-	    messageBox.setAttribute("hidden","true"),
-	    screen.style.overflow = "scroll"
-	) 
-	    : null)
+    if (navigator.maxTouchPoints > 0 && messageBox != null) { 
+	    messageBox.removeAttribute("hidden");
+	    document.body.style.overflow = "hidden";
+    } else if (messageBox) {
+	    messageBox.setAttribute("hidden","true");
+	    document.body.style.overflow = "scroll";
+    }
 
     // menu box for apps
     menuBox.classList.add("menu-box");
@@ -65,25 +49,20 @@ document.addEventListener('DOMContentLoaded',()=>{
 })
 
 // menu button
-menu.addEventListener('click',()=>{
-    (open) ? (
-	screen.removeChild(menuBox),
-	open = false
-    )
-    :	(screen.appendChild(menuBox),
-	open = true
-	)
-})
+if (menu) {menu.addEventListener('click',()=>{
+    (isOpen) ? closeMenu() : openMenu()
+    })
+}
 
 // for testing while changing the resolution manually
 verifyWidht.addEventListener("change",()=>{
     (navigator.maxTouchPoints > 0 && messageBox != null) ? (
-	messageBox.removeAttribute("hidden"),
-	screen.style.overflow = "hidden"
+        messageBox.removeAttribute("hidden"),
+        document.body.style.overflow = "hidden"
     )
-	: ((messageBox != null) ? (
-	    messageBox.setAttribute("hidden","true"),
-	    screen.style.overflow = "scroll"
-	) 
-	    : null)
+        : ((messageBox != null) ? (
+            messageBox.setAttribute("hidden","true"),
+            document.body.style.overflow = "scroll"
+        ) 
+            : null)
 })

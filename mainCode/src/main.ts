@@ -1,6 +1,3 @@
-"use strict";
-
-const screen = document.body;
 const menu = document.querySelector(".menu");
 const menuBox =  document.createElement("DIV");
 const menuProjects = document.createElement("H2");
@@ -11,7 +8,7 @@ const menuContact = document.createElement("H2");
 const menuGitHub = document.createElement("A");
 const menuLinkedIn = document.createElement("A");
 const thx = document.createElement("H5");
-let open = false;
+let isOpen = false;
 
 document.addEventListener('DOMContentLoaded',()=>{
     menuBox.classList.add("menu-box");
@@ -43,12 +40,17 @@ document.addEventListener('DOMContentLoaded',()=>{
     menuBox.appendChild(thx);
 })
 
-menu.addEventListener('click',()=>{
-    (open) ? (
-	screen.removeChild(menuBox),
-	open = false
-    )
-    :	(screen.appendChild(menuBox),
-	open = true
-	)
-})
+const closeMenu = ()=> {
+	document.body.removeChild(menuBox);
+	isOpen = false;
+}
+
+const openMenu = () => {
+    document.body.appendChild(menuBox);
+    isOpen = true;
+}
+
+if (menu) {menu.addEventListener('click',()=>{
+    (isOpen) ? closeMenu() : openMenu()
+    })
+}
