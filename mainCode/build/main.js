@@ -10,7 +10,7 @@ const menuGitHub = document.createElement("A");
 const menuLinkedIn = document.createElement("A");
 
 const thx = document.createElement("H5");
-const root = 'https://aammsst.github.io/';
+const root = 'https://aammsst.github.io/index.html';
 const messageBox = document.querySelector(".no-mobile"); // only for apps without mobile version
 
 let isOpen = false;
@@ -64,7 +64,6 @@ document.addEventListener('DOMContentLoaded',()=>{
         menuLinkedIn.setAttribute('target','_blank');
 
         menuBox.appendChild(menuHome);
-        menuBox.appendChild(menuProjects);
         menuBox.appendChild(menuContact);
         menuBox.appendChild(menuGitHub);
         menuBox.appendChild(menuLinkedIn);
