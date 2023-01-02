@@ -10,7 +10,7 @@ const menuGitHub = document.createElement("A");
 const menuLinkedIn = document.createElement("A");
 
 const thx = document.createElement("H5");
-const root = 'https://aammsst.github.io/index.html';
+const root = 'https://aammsst.github.io/';
 const messageBox = document.querySelector(".no-mobile"); // only for apps without mobile version
 
 let isOpen = false;
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         menuBox.appendChild(thx);
     } else {
         // projects menu box
-        menuHome.setAttribute('href','../index.html');
+        menuHome.setAttribute('href','https://aammsst.github.io/');
         menuGitHub.setAttribute('href','https://github.com/aammsst');
         menuGitHub.setAttribute('target','_blank');
         menuLinkedIn.setAttribute('href','https://www.linkedin.com/in/fabricio-navarro-ab073a165/');
