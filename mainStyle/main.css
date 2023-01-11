@@ -1,17 +1,17 @@
-html{
+html {
     font-family: sans-serif;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     display: none;
 }
 
-::selection{
+::selection {
     background-color: #c00;
     color: #03111e;
 }
 
-.menu-bar, .project-menu-bar{
+.menu-bar, .project-menu-bar {
     z-index: 100;
     position: fixed;
     top: 10px;
@@ -21,26 +21,26 @@ html{
     justify-content: space-between; 
 }
 
-.menu-bar{
+.menu-bar {
     backdrop-filter: blur(33px);
 }
 
-.menu{
+.menu {
     padding: 20px;
     border-radius: 100%;
     transition-property: hover;
     transition: 0.5s;
 }
 
-.menu:hover{
+.menu:hover {
     background-color: #555;
 }
 
-.menu:active{
+.menu:active {
     background-color: #fff;
 }
 
-.menu-box{
+.menu-box {
     z-index: 75;
     position: fixed;
     top: 25%;
@@ -68,15 +68,15 @@ html{
     transition: 1s;
 }
 
-.menu-box a:hover{
+.menu-box a:hover {
     background-color: #48e;;
 }
 
-#btn-dlm{
+#btn-dlm {
     padding: 20px;
 }
 
-.name-stuff{
+.name-stuff {
     justify-content: center;
     display: flex;
     margin-top: 150px;
@@ -84,18 +84,25 @@ html{
     height: 300px;
 }
 
-.name{
+.name {
     display: block;
     color: #48e;
     padding-left: 50px;
     text-align: center;
 }
 
-.knowledge, .projects{
-    margin: auto;
+.knowledge {
+    overflow: scroll;
+    scroll-behavior: smooth;
     display: flex;
-    justify-content: space-around;
     padding: 30px;
+    height: fit-content;
+}
+
+.projects {
+    display: flex;
+    padding: 30px;
+    justify-content: space-around;
     height: fit-content;
 }
 
@@ -104,25 +111,26 @@ html{
     padding: 5px;
 }
 
-.knowledge div{
+.knowledge div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 20px;
+    margin: 0 14%;
     border-radius: 7px;
 }
 
-.projects a{
+.projects a {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.knowledge svg, .projects svg{
+.knowledge svg, .projects svg {
     margin: auto;
 }
 
-.about-me{
+.about-me {
     margin: auto;
     font-size: 1.5rem;
     border-radius: 5px;
@@ -131,24 +139,24 @@ html{
     min-height: 200px;
 }
 
-.contact-box{
+.contact-box {
     display: flex;
     justify-content: space-around;
     padding: 30px;
     height: fit-content;
 }
 
-.contact-box div{
+.contact-box div {
     text-align: center;
     width: fit-content;
 }
 
-.contact-box p{
+.contact-box p {
     border-radius: 5px;
     padding: 3px 5px;
 }
 
-.no-mobile{
+.no-mobile {
     z-index: 50;
     position: fixed;
     top: 0;
@@ -157,7 +165,7 @@ html{
     bottom: 0;
 }
 
-.no-mobile h3{
+.no-mobile h3 {
     padding: 30px;
     margin-top: 60px;
     text-align: center;
@@ -173,26 +181,26 @@ html{
     height: 60px;
 }
 
-.web-titles{
+.web-titles {
     font-size: 1.5rem
 }
 
-.mobile-titles{
+.mobile-titles {
     font-size: 1rem
 }
 
-.web-text{
+.web-text {
     font-size: 1.5rem
 }
 
-.mobile-text{
+.mobile-text {
     font-size: 1rem
 }
 
-.contact-web-svg{
+.contact-web-svg {
     width: 60px;
 }
 
-.contact-mobile-svg{
+.contact-mobile-svg {
     width: 30px;
 }
