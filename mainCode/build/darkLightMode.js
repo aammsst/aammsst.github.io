@@ -6,25 +6,6 @@ const titles = document.querySelectorAll(".dark-titles");
 const text = document.querySelectorAll(".dark-text");
 const backG = document.querySelector(".darkBackG");
 const menuBtn = document.querySelector(".darkMenu");
-const htmlImg = document.querySelector(".htmlImgDark");
-const cssImg = document.querySelector(".cssImgDark");
-const jsImg = document.querySelector(".jsImgDark");
-
-function setDarkImg() {
-    if (htmlImg && cssImg && jsImg) {
-        htmlImg.classList.replace("htmlImgLight","htmlImgDark");
-        cssImg.classList.replace("cssImgLight","cssImgDark");
-        jsImg.classList.replace("jsImgLight","jsImgDark");
-    }
-}
-
-function setLightImg() {
-    if (htmlImg && cssImg && jsImg) {
-        htmlImg.classList.replace("htmlImgDark","htmlImgLight");
-        cssImg.classList.replace("cssImgDark","cssImgLight");
-        jsImg.classList.replace("jsImgDark","jsImgLight");
-    }
-}
 
 function textAndTitlesDark() {
     for(let i = 0; i < text.length; i++) {
@@ -50,7 +31,6 @@ if (button) {
     button.addEventListener('click',()=>{
         if (body.classList.contains("lightMode")) {
             body.classList.replace("lightMode","darkMode");
-            setDarkImg();
             textAndTitlesDark();
             button.title = "Light Mode";
             if (menuBtn) {menuBtn.classList.replace("lightMenu","darkMenu")}
@@ -59,7 +39,6 @@ if (button) {
             if (moon) {moon.classList.add("hide")}
         } else {
             body.classList.replace("darkMode","lightMode");
-            setLightImg()
             textAndTitlesLight();
             button.title = "Dark Mode";
             if (menuBtn) {menuBtn.classList.replace("darkMenu","lightMenu")}

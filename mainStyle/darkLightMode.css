@@ -50,27 +50,3 @@
     background-color: #222;
     color: #ebf7f6;
 }
-
-.htmlImgDark {
-    background-image: url(../images/htmlD.png);
-}
-
-.cssImgDark {
-    background-image: url(../images/cssD.png);
-}
-
-.jsImgDark {
-    background-image: url(../images/jsD.png);
-}
-
-.htmlImgLight {
-    background-image: url(../images/htmlL.png);
-}
-
-.cssImgLight {
-    background-image: url(../images/cssL.png);
-}
-
-.jsImgLight {
-    background-image: url(../images/jsL.png);
-}
