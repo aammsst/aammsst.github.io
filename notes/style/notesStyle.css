@@ -75,7 +75,7 @@ body p{
     outline: none;
 }
 
-.imposible, .btn__delete, .posible
+.impossible, .btn__delete, .possible
 {
     padding: 0 5px;
     margin: 0 5px;
@@ -84,17 +84,17 @@ body p{
     border: none;
 }
 
-.posible
+.possible
 {
     color: #48e;
 }
 
-.posible:hover
+.possible:hover
 {
     color: #169;
 }
 
-.posible:active
+.possible:active
 {
     color: #04d;
 }
@@ -114,7 +114,7 @@ body p{
     color: #f11;
 }
 
-.imposible
+.impossible
 {
     color: #777;
 }
