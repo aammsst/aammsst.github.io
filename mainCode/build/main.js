@@ -39,9 +39,9 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     if (document.location.href == root) {
         // main page menu box
-        menuTetris.setAttribute('href','tetris/tetris.html');
-        menuNotes.setAttribute('href','notes/notes.html');
-        menuPaint.setAttribute('href','webPaint/webPaint.html');
+        menuTetris.setAttribute('href', root + 'Classic-Tetris-Js');
+        menuNotes.setAttribute('href', root + 'Notes');
+        menuPaint.setAttribute('href', root + 'Web-Paint');
         menuGitHub.setAttribute('href','https://github.com/aammsst');
         menuGitHub.setAttribute('target','_blank');
         menuLinkedIn.setAttribute('href','https://www.linkedin.com/in/fabricio-navarro-ab073a165/');
