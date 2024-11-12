@@ -92,9 +92,9 @@ html {
 }
 
 .knowledge {
-    overflow: scroll;
-    scroll-behavior: smooth;
+    overflow: visible;
     display: flex;
+    flex-wrap: wrap;
     padding: 30px;
     height: fit-content;
 }
