@@ -91,7 +91,7 @@ html {
     text-align: center;
 }
 
-.knowledge {
+.langs {
     overflow: visible;
     display: flex;
     flex-wrap: wrap;
@@ -106,13 +106,14 @@ html {
     height: fit-content;
 }
 
-.knowledge h5, .projects h5{
+.langs h5, .projects h5{
     text-align: center;
     padding: 5px;
 }
 
-.knowledge div {
+.langs div {
     display: flex;
+    min-width: 140px;
     flex-direction: column;
     justify-content: center;
     padding: 20px;
@@ -126,7 +127,7 @@ html {
     justify-content: center;
 }
 
-.knowledge svg, .projects svg {
+.langs svg, .projects svg {
     margin: auto;
 }
 
