@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         menuTetris.setAttribute('href', root + 'Classic-Tetris-Js');
         menuNotes.setAttribute('href', root + 'Notes');
         menuPaint.setAttribute('href', root + 'Web-Paint');
-        menuGitHub.setAttribute('href','https://github.com/aammsst');
+        menuGitHub.setAttribute('href','https://github.com/elfabri');
         menuGitHub.setAttribute('target','_blank');
         menuLinkedIn.setAttribute('href','https://www.linkedin.com/in/fabricio-navarro-ab073a165/');
         menuLinkedIn.setAttribute('target','_blank');
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     } else {
         // projects menu box
         menuHome.setAttribute('href','https://aammsst.github.io/');
-        menuGitHub.setAttribute('href','https://github.com/aammsst');
+        menuGitHub.setAttribute('href','https://github.com/elfabri');
         menuGitHub.setAttribute('target','_blank');
         menuLinkedIn.setAttribute('href','https://www.linkedin.com/in/fabricio-navarro-ab073a165/');
         menuLinkedIn.setAttribute('target','_blank');
@@ -102,3 +102,4 @@ verifyWidht.addEventListener("change",()=>{
     }
 })
 */
+
